@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+yy1 = {{y1}}
+yy2 = {{y2}}
+yy3 = {{y3}}
+yy4 = {{y4}}
+yy5 = {{y5}}
+yy6 = {{y6}}
+yy7 = {{y7}}
+yy8 = {{y8}}
+yy9 = {{y9}}
+yy10 = {{y10}}
+yy11 = {{y11}}
+yy12 = {{y12}}
+
+
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	theme: "light1", // "light2", "dark1", "dark2"
+	animationEnabled: false, // change to true		
+	title:{
+		text: "Call Prediction Line Chart" 
+	},
+	data: [
+	{
+		// Change type to "bar", "area", "spline", "pie","column" etc.
+		type: "spline",
+		dataPoints: [
+			{ label: "00:00",  y: yy1},
+			{ label: "02:00", y: yy2  },
+			{ label: "04:00", y: yy3 },
+			{ label: "06:00",  y: yy4  },
+			{ label: "08:00",  y: yy5  },
+			{ label: "10:00",  y: yy6  },
+			{ label: "12:00", y: yy7  },
+			{ label: "14:00", y: yy8  },
+			{ label: "16:00",  y: yy9  },
+			{ label: "18:00",  y: yy10  },
+			{ label: "20:00",  y: yy11  },
+			{ label: "22:00", y: yy12  }
+			]
+	}
+	]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+
+</body>
+</html>

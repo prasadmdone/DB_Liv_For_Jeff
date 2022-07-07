@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BDM Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<style>
+    body{
+		background-color: #474b4f;
+	}
+	.contact{
+		padding: 4%;
+		height: 400px;
+	}
+	.col-md-3{
+		background: #c3073f;
+		padding: 4%;
+		border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+        color: white;
+	}
+	.contact-info{
+		margin-top:10%;
+	}
+	.contact-info img{
+		margin-bottom: 15%;
+	}
+	.contact-info h2{
+		margin-bottom: 10%;
+	}
+	.col-md-9{
+		background: #fff;
+		padding: 3%;
+		border-top-right-radius: 0.5rem;
+		border-bottom-right-radius: 0.5rem;
+	}
+	.contact-form label{
+		font-weight:600;
+	}
+	.contact-form button{
+		background: #25274d;
+		color: #fff;
+		font-weight: 600;
+		width: 25%;
+	}
+	.contact-form button:focus{
+		box-shadow:none;
+	}
+</style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar-nav">
+      <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+      <a class="nav-item nav-link" href="{% url 'diabindex' %}">Diabetes</a>
+      <a class="nav-item nav-link" href="{% url 'liverindex' %}">Liver</a>
+      <a class="nav-item nav-link" href="{% url 'churnindex' %}">Churn</a>
+      <a class="nav-item nav-link" href="{% url 'recindex' %}">Recommendation</a>
+      <a class="nav-item nav-link" href="{% url 'callindex' %}">CallPrediction</a>
+      <a class="nav-item nav-link" href="{% url 'fraudindex' %}">FraudAnalytics</a>
+    </div>
+</nav>
+    <div class="container contact">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="contact-info">
+                    <h2>Call Prediction</h2>
+                    <h4>Test out our new prediction model</h4>
+                    <br>
+                    
+                    
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="contact-form">
+                    <div class="form-group">
+                        <div class="form">
+                            <form action="/cpredict" method="POST">
+                              {% csrf_token %}
+                              <div class="container">
+                              <label class="control-label " >Number of intervals(less than 12): <input type="text" name="interval" id="age" value={{temp.interval}}></label>
+                              </div>
+
+                              
+                              <div class="container" style="align-items: center;"><input type="submit" value="Predict"></div>
+                               <ul> 
+                                    {% for item in a %} 
+                                        <li>{{ item }}</li> 
+                                    {% endfor %} 
+                               </ul>  
+                    </form>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
